@@ -40,18 +40,19 @@ startBtn.addEventListener("click", () => {
 // Function to move NO button
 
 function moveButton() {
+ const card = document.getElementById("questionScreen");
 
-  const maxX = window.innerWidth - noBtn.offsetWidth - 20;
-    const maxY = window.innerHeight - noBtn.offsetHeight - 20;
+    const rect = card.getBoundingClientRect();
 
-    const randomX = Math.random() * maxX;
-    const randomY = Math.random() * maxY;
+    const x = rect.left + Math.random() * (rect.width - 220);
+    const y = rect.top + Math.random() * (rect.height - 120);
 
-    noBtn.style.left = randomX + "px";
-    noBtn.style.top = randomY + "px";
+    noBtn.style.left = x + "px";
+    noBtn.style.top = y + "px";
 
-    const randomDialogue = dialogues[Math.floor(Math.random() * dialogues.length)];
-    noBtn.textContent = randomDialogue; 
+    noBtn.textContent =
+        dialogues[Math.floor(Math.random() * dialogues.length)];
+ 
 }
 
 
