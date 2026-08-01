@@ -73,7 +73,11 @@ button{
 #noBtn{
     background:#ff4d6d;
     color:white;
-    position:fixed;
+    position:absolute;
+    min-width:180px;
+    padding:14px 18px;
+    white-space:nowrap;
+    z-index:999;
 }
 
 .bar{
