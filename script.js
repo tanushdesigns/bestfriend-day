@@ -1,3 +1,4 @@
+const bgMusic = document.getElementById("bgMusic");
 const loading = document.getElementById("loading");
 const startScreen = document.getElementById("startScreen");
 const questionScreen = document.getElementById("questionScreen");
@@ -8,7 +9,18 @@ const yesBtn = document.getElementById("yesBtn");
 const noBtn = document.getElementById("noBtn");
 
 const message = document.getElementById("message");
-
+const dialogues = [
+    "😂 Nice try!",
+    "🙄 Nope!",
+    "😏 You only have one option.",
+    "💜 Friendship can't be cancelled.",
+    "🤭 Catch me if you can!",
+    "😌 Press YES instead.",
+    "🚫 Access Denied.",
+    "🤣 Not happening.",
+    "💜 Best Friends Forever!",
+    "😜 Still trying?"
+];
 // Loading → Start Screen
 setTimeout(() => {
     loading.classList.add("hidden");
@@ -26,6 +38,7 @@ startBtn.addEventListener("click", () => {
 });
 
 // Function to move NO button
+
 function moveButton() {
 
     const maxX = window.innerWidth - noBtn.offsetWidth - 20;
@@ -36,7 +49,12 @@ function moveButton() {
 
     noBtn.style.left = randomX + "px";
     noBtn.style.top = randomY + "px";
+
+    noBtn.innerText =
+        dialogues[Math.floor(Math.random() * dialogues.length)];
+
 }
+
 
 // Desktop
 noBtn.addEventListener("mouseover", moveButton);
