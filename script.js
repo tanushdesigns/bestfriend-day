@@ -40,21 +40,24 @@ startBtn.addEventListener("click", () => {
 // Function to move NO button
 
 function moveButton() {
- const card = document.getElementById("questionScreen");
 
+    const card = document.getElementById("questionScreen");
     const rect = card.getBoundingClientRect();
 
-    const x = rect.left + Math.random() * (rect.width - 220);
-    const y = rect.top + Math.random() * (rect.height - 120);
+    const btnWidth = noBtn.offsetWidth;
+    const btnHeight = noBtn.offsetHeight;
 
-    noBtn.style.left = x + "px";
-    noBtn.style.top = y + "px";
+    const randomX = Math.random() * (rect.width - btnWidth - 20);
+    const randomY = Math.random() * (rect.height - btnHeight - 20);
 
-    noBtn.textContent =
+    noBtn.style.left = (rect.left + randomX) + "px";
+    noBtn.style.top = (rect.top + randomY) + "px";
+
+    const randomDialogue =
         dialogues[Math.floor(Math.random() * dialogues.length)];
- 
-}
 
+    noBtn.textContent = randomDialogue;
+}
 
 // Desktop
 noBtn.addEventListener("mouseover", moveButton);
