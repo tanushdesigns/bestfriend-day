@@ -41,7 +41,7 @@ startBtn.addEventListener("click", () => {
 
 function moveButton() {
 
-    const maxX = window.innerWidth - noBtn.offsetWidth - 20;
+  const maxX = window.innerWidth - noBtn.offsetWidth - 20;
     const maxY = window.innerHeight - noBtn.offsetHeight - 20;
 
     const randomX = Math.random() * maxX;
@@ -50,9 +50,8 @@ function moveButton() {
     noBtn.style.left = randomX + "px";
     noBtn.style.top = randomY + "px";
 
-    noBtn.innerText =
-        dialogues[Math.floor(Math.random() * dialogues.length)];
-
+    const randomDialogue = dialogues[Math.floor(Math.random() * dialogues.length)];
+    noBtn.textContent = randomDialogue; 
 }
 
 
@@ -68,6 +67,9 @@ noBtn.addEventListener("touchstart", function(e){
 // Click
 noBtn.addEventListener("click", moveButton);
 
+startBtn.addEventListener("click", () => {
+    noBtn.textContent = "NO 🙄";
+});
 // YES
 yesBtn.addEventListener("click", () => {
 
